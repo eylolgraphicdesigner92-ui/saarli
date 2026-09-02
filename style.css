@@ -1,0 +1,108 @@
+/* --- 1. تعريف المتغيرات (Theme Variables) --- */
+:root {
+    /* ألوان الخلفيات (Midnight) */
+    --bg-midnight-gradient: linear-gradient(135deg, #0B0B1E 0%, #12122A 50%, #1A0B2E 100%);
+    --bg-header-gradient: linear-gradient(180deg, rgba(31, 23, 61, 0.8) 0%, rgba(18, 12, 38, 0.6) 100%);
+    --bg-nav: rgba(15, 10, 30, 0.75);
+
+    /* ألوان التوهج والبنفسجي (Violet & AI Glow) */
+    --color-primary-glow: linear-gradient(90deg, #7B2CBF 0%, #9D4EDD 50%, #C77DFF 100%);
+    --color-text-vibrant: #E0AAFF;
+    --color-accent: #9D4EDD;
+    --color-active-nav: #C77DFF;
+    --shadow-glow: rgba(157, 78, 221, 0.4);
+    --shadow-glow-hover: rgba(199, 125, 255, 0.6);
+
+    /* ستايل الزجاج (Glass Cards) */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(157, 78, 221, 0.4);
+    --glass-blur: blur(12px);
+
+    /* ألوان النصوص العامة */
+    --text-main: #FFFFFF;
+    --text-muted: #A0A0B5;
+}
+
+/* --- 2. تطبيق المتغيرات على العناصر --- */
+
+body {
+    background: var(--bg-midnight-gradient);
+    color: var(--text-main);
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    background: var(--bg-header-gradient);
+    border-bottom: 1px solid var(--glass-border-hover);
+    border-radius: 0 0 24px 24px;
+    padding: 20px;
+}
+
+/* زر تسعير منتج جديد */
+.btn-pricing-new {
+    background: var(--color-primary-glow);
+    color: var(--text-main);
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-weight: bold;
+    box-shadow: 0 0 20px var(--shadow-glow), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-pricing-new:hover {
+    box-shadow: 0 0 30px var(--shadow-glow-hover);
+    transform: translateY(-2px);
+}
+
+/* بطاقات الإحصائيات الزجاجية */
+.stat-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-4px);
+}
+
+.stat-value {
+    color: var(--color-text-vibrant);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.stat-currency {
+    color: var(--color-accent);
+    font-size: 16px;
+}
+
+/* شريط التنقل السفلي */
+.bottom-nav {
+    background: var(--bg-nav);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(157, 78, 221, 0.15);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+}
+
+.nav-item {
+    color: var(--text-muted);
+}
+
+.nav-item.active {
+    color: var(--color-active-nav);
+    filter: drop-shadow(0 0 8px var(--color-accent));
+}

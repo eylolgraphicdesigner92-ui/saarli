@@ -1,0 +1,3773 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#17152f">
+
+<meta name="description"
+      content="سعّرلي - تطبيق احترافي لتسعير منتجات التصميم والطباعة وإدارة الأرباح والطلبيات">
+
+<!-- PWA -->
+<link rel="manifest"
+      href="manifest.json">
+
+<title>سعّرلي</title>
+
+<style>
+
+/* =====================================================
+RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#6d55e8;
+    --primary-dark:#4d3bb8;
+    --dark:#17152f;
+    --bg:#f6f7fb;
+    --card:#ffffff;
+    --text:#191928;
+    --muted:#858593;
+    --green:#20a56c;
+    --red:#e65353;
+    --border:#e8e8ef;
+}
+
+body{
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:var(--bg);
+    color:var(--text);
+
+    padding-bottom:92px;
+
+    min-height:100vh;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+/* =====================================================
+HEADER
+===================================================== */
+
+.header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #15132d,
+            #34286b
+        );
+
+    color:white;
+
+    padding:
+        20px
+        18px
+        28px;
+
+    border-radius:
+        0
+        0
+        30px
+        30px;
+}
+
+.header-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logo{
+
+    font-size:27px;
+
+    font-weight:900;
+}
+
+.logo span{
+    color:#a899ff;
+}
+
+.header-action{
+
+    width:42px;
+    height:42px;
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+}
+
+.welcome{
+
+    margin-top:25px;
+
+    font-size:13px;
+
+    opacity:.75;
+}
+
+.header h1{
+
+    margin-top:7px;
+
+    font-size:23px;
+}
+
+.header p{
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    opacity:.65;
+}
+
+/* =====================================================
+CONTAINER
+===================================================== */
+
+.container{
+
+    width:100%;
+
+    max-width:720px;
+
+    margin:auto;
+
+    padding:
+        18px
+        15px;
+}
+
+/* =====================================================
+PAGES
+===================================================== */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* =====================================================
+PRIMARY BUTTON
+===================================================== */
+
+.primary-btn{
+
+    width:100%;
+
+    border:0;
+
+    padding:17px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #765cf1,
+            #5940d2
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(90,65,210,.23);
+
+    margin-bottom:20px;
+}
+
+.primary-btn:active{
+    transform:scale(.98);
+}
+
+/* =====================================================
+STATISTICS
+===================================================== */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.stat{
+
+    background:white;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.04);
+}
+
+.stat-icon{
+
+    font-size:23px;
+
+    margin-bottom:8px;
+}
+
+.stat-title{
+
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+.stat-value{
+
+    margin-top:5px;
+
+    font-size:19px;
+
+    font-weight:bold;
+}
+
+/* =====================================================
+SECTION
+===================================================== */
+
+.section{
+    margin-top:25px;
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+}
+
+.section-title h2{
+    font-size:17px;
+}
+
+.section-title button{
+
+    border:0;
+
+    background:none;
+
+    color:var(--primary);
+
+    font-size:12px;
+}
+
+/* =====================================================
+AI CARD
+===================================================== */
+
+.ai-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #181535,
+            #342766
+        );
+
+    color:white;
+
+    padding:20px;
+
+    border-radius:22px;
+}
+
+.ai-title{
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+.ai-description{
+
+    font-size:12px;
+
+    color:#d8d5e7;
+
+    line-height:1.8;
+
+    margin-bottom:15px;
+}
+
+.ai-btn{
+
+    border:0;
+
+    background:white;
+
+    color:#34276b;
+
+    padding:
+        11px
+        16px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* =====================================================
+OPERATIONS
+===================================================== */
+
+.operation{
+
+    background:white;
+
+    padding:14px;
+
+    border-radius:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:10px;
+}
+
+.operation-icon{
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    background:#eeeaff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    overflow:hidden;
+}
+
+.operation-icon img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.operation-info{
+    flex:1;
+}
+
+.operation-name{
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.operation-date{
+
+    font-size:10px;
+
+    color:#999;
+
+    margin-top:5px;
+}
+
+.operation-profit{
+
+    color:var(--green);
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+/* =====================================================
+CONTENT CARDS
+===================================================== */
+
+.content-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.content-card{
+
+    background:white;
+
+    padding:17px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0,0,0,.04);
+
+    cursor:pointer;
+}
+
+.content-icon{
+
+    font-size:27px;
+
+    margin-bottom:10px;
+}
+
+.content-card h3{
+
+    font-size:14px;
+
+    margin-bottom:6px;
+}
+
+.content-card p{
+
+    color:#888;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+/* =====================================================
+PAGE HEADER
+===================================================== */
+
+.page-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+}
+
+.page-header h2{
+    font-size:21px;
+}
+
+.page-header p{
+
+    color:#888;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+/* =====================================================
+SEARCH
+===================================================== */
+
+.search{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid var(--border);
+
+    background:white;
+
+    border-radius:14px;
+
+    outline:none;
+
+    margin-bottom:15px;
+}
+
+/* =====================================================
+PRODUCT CARD
+===================================================== */
+
+.product-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    margin-bottom:12px;
+}
+
+.product-top{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+}
+
+.product-image{
+
+    width:58px;
+    height:58px;
+
+    border-radius:15px;
+
+    background:#eeeaff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    font-size:24px;
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.product-info{
+    flex:1;
+}
+
+.product-info h3{
+    font-size:14px;
+}
+
+.product-info p{
+
+    color:#888;
+
+    font-size:11px;
+
+    margin-top:5px;
+}
+
+.product-price{
+
+    font-weight:bold;
+
+    color:var(--primary);
+}
+
+.product-bottom{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap:8px;
+
+    margin-top:13px;
+
+    padding-top:12px;
+
+    border-top:1px solid #eee;
+}
+
+.product-stat{
+
+    text-align:center;
+
+    font-size:11px;
+
+    color:#888;
+}
+
+.product-stat strong{
+
+    display:block;
+
+    color:#222;
+
+    margin-top:4px;
+}
+
+/* =====================================================
+FORM
+===================================================== */
+
+.form-card{
+
+    background:white;
+
+    padding:18px;
+
+    border-radius:20px;
+}
+
+.input-group{
+
+    margin-bottom:15px;
+}
+
+.input-group label{
+
+    display:block;
+
+    font-size:12px;
+
+    margin-bottom:7px;
+
+    font-weight:bold;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+
+    width:100%;
+
+    border:1px solid var(--border);
+
+    background:#fafafd;
+
+    padding:13px;
+
+    border-radius:13px;
+
+    outline:none;
+
+    font-size:13px;
+}
+
+.input-group textarea{
+
+    min-height:90px;
+
+    resize:none;
+}
+
+/* =====================================================
+PHOTO UPLOAD
+===================================================== */
+
+.photo-area{
+
+    border:2px dashed #cfc8f7;
+
+    background:#faf9ff;
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    margin-bottom:18px;
+}
+
+.photo-area-icon{
+
+    font-size:35px;
+
+    margin-bottom:8px;
+}
+
+.photo-area h3{
+
+    font-size:14px;
+
+    margin-bottom:5px;
+}
+
+.photo-area p{
+
+    color:#888;
+
+    font-size:11px;
+}
+
+.photo-preview{
+
+    display:none;
+
+    width:100%;
+
+    max-height:230px;
+
+    object-fit:contain;
+
+    border-radius:15px;
+
+    margin-top:15px;
+}
+
+/* =====================================================
+CAMERA BUTTONS
+===================================================== */
+
+.photo-buttons{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:10px;
+
+    margin-top:12px;
+}
+
+.photo-btn{
+
+    border:0;
+
+    background:#f0eefc;
+
+    color:#4d3bb8;
+
+    padding:13px;
+
+    border-radius:13px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+input[type=file]{
+    display:none;
+}
+
+/* =====================================================
+RESULT
+===================================================== */
+
+.result-card{
+
+    display:none;
+
+    margin-top:15px;
+
+    background:#f3f0ff;
+
+    border-radius:17px;
+
+    padding:16px;
+}
+
+.result-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:7px 0;
+
+    font-size:13px;
+}
+
+.result-row strong{
+    color:var(--primary);
+}
+
+/* =====================================================
+ORDERS
+===================================================== */
+
+.order-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+}
+
+.order-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.order-status{
+
+    background:#fff1d8;
+
+    color:#9a6500;
+
+    padding:5px 9px;
+
+    border-radius:9px;
+
+    font-size:10px;
+}
+
+.order-total{
+
+    margin-top:13px;
+
+    font-weight:bold;
+
+    color:var(--primary);
+}
+
+/* =====================================================
+PROFIT DASHBOARD
+===================================================== */
+
+.profit-main{
+
+    background:
+        linear-gradient(
+            135deg,
+            #17152f,
+            #392b78
+        );
+
+    color:white;
+
+    border-radius:22px;
+
+    padding:22px;
+
+    text-align:center;
+}
+
+.profit-main small{
+    opacity:.7;
+}
+
+.profit-main h1{
+
+    font-size:31px;
+
+    margin:8px 0;
+}
+
+.profit-main p{
+
+    font-size:11px;
+
+    opacity:.7;
+}
+
+.profit-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+
+    margin-top:15px;
+}
+
+/* =====================================================
+SETTINGS
+===================================================== */
+
+.setting-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+}
+
+.setting{
+
+    padding:17px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-bottom:1px solid #eee;
+
+    cursor:pointer;
+}
+
+.setting:last-child{
+    border-bottom:0;
+}
+
+.setting-icon{
+
+    width:40px;
+    height:40px;
+
+    border-radius:12px;
+
+    background:#f0eefc;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.setting-info{
+    flex:1;
+}
+
+.setting-info h3{
+    font-size:13px;
+}
+
+.setting-info p{
+
+    color:#999;
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+.danger{
+    color:var(--red);
+}
+
+/* =====================================================
+CONTENT PAGE
+===================================================== */
+
+.article{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    margin-bottom:12px;
+}
+
+.article h3{
+
+    font-size:16px;
+
+    margin-bottom:10px;
+}
+
+.article p{
+
+    color:#666;
+
+    font-size:12px;
+
+    line-height:2;
+}
+
+/* =====================================================
+BOTTOM NAV
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    right:0;
+
+    left:0;
+
+    height:76px;
+
+    background:white;
+
+    border-top:
+        1px solid #e8e8ed;
+
+    display:flex;
+
+    flex-direction:row;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    z-index:5000;
+
+    box-shadow:
+        0 -5px 20px
+        rgba(0,0,0,.05);
+}
+
+.nav-item{
+
+    flex:1;
+
+    text-align:center;
+
+    color:#8b8b97;
+
+    font-size:9px;
+
+    cursor:pointer;
+
+    white-space:nowrap;
+}
+
+.nav-icon{
+
+    display:block;
+
+    font-size:20px;
+
+    margin-bottom:4px;
+}
+
+.nav-item.active{
+
+    color:var(--primary);
+
+    font-weight:bold;
+}
+
+/* =====================================================
+MODAL
+===================================================== */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(0,0,0,.55);
+
+    z-index:8000;
+
+    align-items:flex-end;
+
+    justify-content:center;
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:720px;
+
+    background:white;
+
+    border-radius:
+        28px
+        28px
+        0
+        0;
+
+    padding:
+        22px
+        18px
+        30px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+}
+
+.modal-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.close{
+
+    width:38px;
+    height:38px;
+
+    border:0;
+
+    background:#f1f1f5;
+
+    border-radius:11px;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+/* =====================================================
+EMPTY STATE
+===================================================== */
+
+.empty{
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px 15px;
+
+    color:#888;
+}
+
+.empty-icon{
+
+    font-size:40px;
+
+    margin-bottom:10px;
+}
+
+.empty h3{
+
+    color:#333;
+
+    font-size:15px;
+
+    margin-bottom:5px;
+}
+
+.empty p{
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media(max-width:380px){
+
+    .header h1{
+        font-size:20px;
+    }
+
+    .logo{
+        font-size:23px;
+    }
+
+    .nav-icon{
+        font-size:18px;
+    }
+
+    .nav-item{
+        font-size:8px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="header-top">
+
+<div class="logo">
+    سعّر<span>لي</span>
+</div>
+
+<div
+    class="header-action"
+    onclick="showPage('settings')">
+
+    ⚙️
+
+</div>
+
+</div>
+
+
+<div class="welcome">
+    مرحباً بك 👋
+</div>
+
+
+<h1>
+    خلّي سعرك محسوب صح.
+</h1>
+
+
+<p>
+    احسب، سعّر، تابع أرباحك ونظّم طلباتك.
+</p>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section
+    id="home"
+    class="page active">
+
+
+<button
+    class="primary-btn"
+    onclick="openPricing()">
+
+    🧮 &nbsp;
+    تسعير منتج جديد
+
+</button>
+
+
+<div class="stats">
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        💰
+    </div>
+
+    <div class="stat-title">
+        أرباحك
+    </div>
+
+    <div
+        class="stat-value"
+        id="homeProfit">
+
+        0 دج
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        📦
+    </div>
+
+    <div class="stat-title">
+        الطلبات
+    </div>
+
+    <div
+        class="stat-value"
+        id="homeOrders">
+
+        0
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        🧮
+    </div>
+
+    <div class="stat-title">
+        عمليات التسعير
+    </div>
+
+    <div
+        class="stat-value"
+        id="homeProducts">
+
+        0
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        📈
+    </div>
+
+    <div class="stat-title">
+        متوسط الربح
+    </div>
+
+    <div
+        class="stat-value"
+        id="homeAverage">
+
+        0 دج
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<!-- AI -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        🤖 مساعد سعّرلي
+    </h2>
+
+</div>
+
+
+<div class="ai-card">
+
+    <div class="ai-title">
+        صوّر وسعّر
+    </div>
+
+    <div class="ai-description">
+
+        التقط صورة لمنتجك أو ارفع صورة،
+        وساعدك سعّرلي في تجهيز معلومات
+        المنتج للتسعير.
+
+    </div>
+
+    <button
+        class="ai-btn"
+        onclick="openPricing(true)">
+
+        📸 ابدأ التحليل
+
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- RECENT -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        آخر عمليات التسعير
+    </h2>
+
+    <button
+        onclick="showPage('prices')">
+
+        عرض الكل
+
+    </button>
+
+</div>
+
+<div id="recentList"></div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<section class="section">
+
+<div class="section-title">
+
+    <h2>
+        📚 محتوى سعّرلي
+    </h2>
+
+    <button
+        onclick="showPage('content')">
+
+        المزيد
+
+    </button>
+
+</div>
+
+
+<div class="content-grid">
+
+
+<div
+    class="content-card"
+    onclick="openArticle('pricing')">
+
+    <div class="content-icon">
+        🧮
+    </div>
+
+    <h3>
+        أساسيات التسعير
+    </h3>
+
+    <p>
+        تعلّم كيف تحسب التكلفة
+        وتحدد السعر المناسب.
+    </p>
+
+</div>
+
+
+<div
+    class="content-card"
+    onclick="openArticle('printing')">
+
+    <div class="content-icon">
+        🖨️
+    </div>
+
+    <h3>
+        تسعير الطباعة
+    </h3>
+
+    <p>
+        الورق، الحبر، القص
+        والتجليد.
+    </p>
+
+</div>
+
+
+<div
+    class="content-card"
+    onclick="openArticle('digital')">
+
+    <div class="content-icon">
+        💻
+    </div>
+
+    <h3>
+        المنتجات الرقمية
+    </h3>
+
+    <p>
+        PDF، Planners،
+        قوالب وتصاميم.
+    </p>
+
+</div>
+
+
+<div
+    class="content-card"
+    onclick="openArticle('pdf')">
+
+    <div class="content-icon">
+        📄
+    </div>
+
+    <h3>
+        عروض الأسعار
+    </h3>
+
+    <p>
+        أنشئ عروض أسعار
+        وفواتير مستقبلًا.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+</section>
+
+
+<!-- =====================================================
+PRICES
+===================================================== -->
+
+<section
+    id="prices"
+    class="page">
+
+
+<div class="page-header">
+
+<div>
+
+    <h2>
+        💰 أسعاري
+    </h2>
+
+    <p>
+        جميع المنتجات التي سعّرتها
+    </p>
+
+</div>
+
+
+<button
+    class="primary-btn"
+    style="
+    width:auto;
+    padding:10px 14px;
+    margin:0;
+    font-size:12px;"
+    onclick="openPricing()">
+
+    + منتج
+
+</button>
+
+</div>
+
+
+<input
+    class="search"
+    id="searchProducts"
+    oninput="renderProducts()"
+    placeholder="🔎 ابحث عن منتج...">
+
+
+<div id="productsList"></div>
+
+</section>
+
+
+<!-- =====================================================
+ORDERS
+===================================================== -->
+
+<section
+    id="orders"
+    class="page">
+
+
+<div class="page-header">
+
+<div>
+
+    <h2>
+        📦 الطلبيات
+    </h2>
+
+    <p>
+        تابع طلباتك وكمياتها
+    </p>
+
+</div>
+
+</div>
+
+
+<button
+    class="primary-btn"
+    onclick="addOrder()">
+
+    ➕ إضافة طلبية
+
+</button>
+
+
+<div id="ordersList"></div>
+
+</section>
+
+
+<!-- =====================================================
+PROFITS
+===================================================== -->
+
+<section
+    id="profits"
+    class="page">
+
+
+<div class="page-header">
+
+<div>
+
+    <h2>
+        📈 الأرباح
+    </h2>
+
+    <p>
+        نظرة على نتائج نشاطك
+    </p>
+
+</div>
+
+</div>
+
+
+<div class="profit-main">
+
+<small>
+    إجمالي الأرباح
+</small>
+
+<h1 id="totalProfit">
+    0 دج
+</h1>
+
+<p>
+    من عمليات التسعير المحفوظة
+</p>
+
+</div>
+
+
+<div class="profit-grid">
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        💰
+    </div>
+
+    <div class="stat-title">
+        متوسط الربح
+    </div>
+
+    <div
+        class="stat-value"
+        id="profitAverage">
+
+        0 دج
+
+    </div>
+
+</div>
+
+
+<div class="stat">
+
+    <div class="stat-icon">
+        📦
+    </div>
+
+    <div class="stat-title">
+        عدد المنتجات
+    </div>
+
+    <div
+        class="stat-value"
+        id="profitProducts">
+
+        0
+
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+CONTENT
+===================================================== -->
+
+<section
+    id="content"
+    class="page">
+
+
+<div class="page-header">
+
+<div>
+
+    <h2>
+        📚 المحتوى
+    </h2>
+
+    <p>
+        تعلّم التسعير وإدارة الربح
+    </p>
+
+</div>
+
+</div>
+
+
+<div id="articleContainer">
+
+
+<div class="article">
+
+    <h3>
+        🧮 كيف تسعّر منتجك؟
+    </h3>
+
+    <p>
+
+        ابدأ بحساب جميع التكاليف:
+        المواد، الطباعة، التصميم،
+        الوقت، التغليف والمصاريف الأخرى.
+
+        بعد معرفة التكلفة الحقيقية،
+        حدد هامش الربح الذي يناسب
+        طبيعة المنتج والسوق.
+
+    </p>
+
+</div>
+
+
+<div class="article">
+
+    <h3>
+        🖨️ تسعير منتجات الطباعة
+    </h3>
+
+    <p>
+
+        لا تعتمد فقط على تكلفة الورق.
+        احسب الحبر والطاقة والتجهيز
+        والقص والتجليد ووقت العمل.
+
+    </p>
+
+</div>
+
+
+<div class="article">
+
+    <h3>
+        💻 المنتجات الرقمية
+    </h3>
+
+    <p>
+
+        عند تسعير المنتج الرقمي،
+        ضع قيمة وقت التصميم والخبرة
+        والتحديثات، وليس فقط تكلفة
+        إنشاء الملف.
+
+    </p>
+
+</div>
+
+
+<div class="article">
+
+    <h3>
+        📄 عروض الأسعار وPDF
+    </h3>
+
+    <p>
+
+        اجعل عرض السعر واضحًا:
+        اسم العميل، المنتج، الكمية،
+        السعر، الإجمالي ومدة صلاحية العرض.
+
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+SETTINGS
+===================================================== -->
+
+<section
+    id="settings"
+    class="page">
+
+
+<div class="page-header">
+
+<div>
+
+    <h2>
+        ⚙️ الإعدادات
+    </h2>
+
+    <p>
+        إدارة تطبيق سعّرلي
+    </p>
+
+</div>
+
+</div>
+
+
+<div class="setting-card">
+
+
+<div
+    class="setting"
+    onclick="alert('يمكن إضافة معلومات النشاط هنا لاحقًا.')">
+
+    <div class="setting-icon">
+        🏪
+    </div>
+
+    <div class="setting-info">
+
+        <h3>
+            معلومات النشاط
+        </h3>
+
+        <p>
+            اسم المشروع والشعار والبيانات
+        </p>
+
+    </div>
+
+    <span>
+        ›
+    </span>
+
+</div>
+
+
+<div
+    class="setting"
+    onclick="alert('إعدادات العملة جاهزة للتطوير.')">
+
+    <div class="setting-icon">
+        💱
+    </div>
+
+    <div class="setting-info">
+
+        <h3>
+            العملة
+        </h3>
+
+        <p>
+            الدينار الجزائري DZD
+        </p>
+
+    </div>
+
+    <span>
+        ›
+    </span>
+
+</div>
+
+
+<div
+    class="setting"
+    onclick="exportData()">
+
+    <div class="setting-icon">
+        📤
+    </div>
+
+    <div class="setting-info">
+
+        <h3>
+            تصدير البيانات
+        </h3>
+
+        <p>
+            حفظ نسخة من بياناتك
+        </p>
+
+    </div>
+
+    <span>
+        ›
+    </span>
+
+</div>
+
+
+<div
+    class="setting"
+    onclick="deleteAllData()">
+
+    <div
+        class="setting-icon"
+        style="background:#fff0f0">
+
+        🗑️
+
+    </div>
+
+    <div class="setting-info">
+
+        <h3 class="danger">
+            حذف جميع البيانات
+        </h3>
+
+        <p>
+            حذف المنتجات والطلبيات المحفوظة
+        </p>
+
+    </div>
+
+    <span class="danger">
+        ›
+    </span>
+
+</div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+BOTTOM NAV
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+<div
+    class="nav-item active"
+    onclick="showPage('home',this)">
+
+    <span class="nav-icon">
+        🏠
+    </span>
+
+    الرئيسية
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="showPage('prices',this)">
+
+    <span class="nav-icon">
+        🧮
+    </span>
+
+    أسعاري
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="showPage('orders',this)">
+
+    <span class="nav-icon">
+        📦
+    </span>
+
+    الطلبات
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="showPage('profits',this)">
+
+    <span class="nav-icon">
+        📈
+    </span>
+
+    الأرباح
+
+</div>
+
+
+<div
+    class="nav-item"
+    onclick="showPage('settings',this)">
+
+    <span class="nav-icon">
+        ⚙️
+    </span>
+
+    الإعدادات
+
+</div>
+
+
+</nav>
+
+
+<!-- =====================================================
+PRICING MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="pricingModal">
+
+
+<div class="modal-box">
+
+
+<div class="modal-head">
+
+    <h2>
+        🧮 تسعير منتج جديد
+    </h2>
+
+    <button
+        class="close"
+        onclick="closePricing()">
+
+        ×
+
+    </button>
+
+</div>
+
+
+<!-- PHOTO -->
+
+<div class="photo-area">
+
+    <div class="photo-area-icon">
+        📸
+    </div>
+
+    <h3>
+        أضف صورة المنتج
+    </h3>
+
+    <p>
+        التقط صورة أو اخترها من الهاتف
+    </p>
+
+
+    <div class="photo-buttons">
+
+        <button
+            class="photo-btn"
+            onclick="openCamera()">
+
+            📷 تصوير
+
+        </button>
+
+        <button
+            class="photo-btn"
+            onclick="openGallery()">
+
+            🖼️ معرض الصور
+
+        </button>
+
+    </div>
+
+
+    <img
+        id="photoPreview"
+        class="photo-preview">
+
+</div>
+
+
+<!-- CAMERA -->
+
+<input
+    type="file"
+    id="cameraInput"
+    accept="image/*"
+    capture="environment"
+    onchange="previewImage(this)">
+
+
+<!-- GALLERY -->
+
+<input
+    type="file"
+    id="galleryInput"
+    accept="image/*"
+    onchange="previewImage(this)">
+
+
+<!-- FILE -->
+
+<div class="input-group">
+
+    <label>
+        📎 ملف مرتبط بالمنتج
+    </label>
+
+    <input
+        type="file"
+        id="fileInput">
+
+    <button
+        class="photo-btn"
+        style="width:100%"
+        onclick="document.getElementById('fileInput').click()">
+
+        📎 اختيار ملف
+
+    </button>
+
+</div>
+
+
+<!-- PRODUCT NAME -->
+
+<div class="input-group">
+
+    <label>
+        اسم المنتج *
+    </label>
+
+    <input
+        id="productName"
+        placeholder="مثال: Planner A5">
+
+</div>
+
+
+<!-- CATEGORY -->
+
+<div class="input-group">
+
+    <label>
+        نوع المنتج
+    </label>
+
+    <select id="productCategory">
+
+        <option>
+            طباعة
+        </option>
+
+        <option>
+            منتج رقمي
+        </option>
+
+        <option>
+            تصميم
+        </option>
+
+        <option>
+            PDF
+        </option>
+
+        <option>
+            أخرى
+        </option>
+
+    </select>
+
+</div>
+
+
+<!-- MATERIAL COST -->
+
+<div class="input-group">
+
+    <label>
+        تكلفة المواد / المنتج
+    </label>
+
+    <input
+        type="number"
+        id="materialCost"
+        placeholder="0">
+
+</div>
+
+
+<!-- PRINT COST -->
+
+<div class="input-group">
+
+    <label>
+        تكلفة الطباعة
+    </label>
+
+    <input
+        type="number"
+        id="printCost"
+        placeholder="0">
+
+</div>
+
+
+<!-- DESIGN COST -->
+
+<div class="input-group">
+
+    <label>
+        تكلفة التصميم / العمل
+    </label>
+
+    <input
+        type="number"
+        id="designCost"
+        placeholder="0">
+
+</div>
+
+
+<!-- EXTRA COST -->
+
+<div class="input-group">
+
+    <label>
+        مصاريف إضافية
+    </label>
+
+    <input
+        type="number"
+        id="extraCost"
+        placeholder="0">
+
+</div>
+
+
+<!-- QUANTITY -->
+
+<div class="input-group">
+
+    <label>
+        الكمية
+    </label>
+
+    <input
+        type="number"
+        id="quantity"
+        value="1"
+        min="1">
+
+</div>
+
+
+<!-- PROFIT MARGIN -->
+
+<div class="input-group">
+
+    <label>
+        هامش الربح %
+    </label>
+
+    <input
+        type="number"
+        id="margin"
+        value="40"
+        min="1">
+
+</div>
+
+
+<!-- AI -->
+
+<button
+    class="ai-btn"
+    style="
+    width:100%;
+    margin-bottom:12px;"
+    onclick="aiAnalysis()">
+
+    🤖 تحليل AI تجريبي
+
+</button>
+
+
+<!-- CALCULATE -->
+
+<button
+    class="primary-btn"
+    style="margin:0"
+    onclick="calculatePrice()">
+
+    🧮 احسب السعر
+
+</button>
+
+
+<!-- RESULT -->
+
+<div
+    class="result-card"
+    id="resultCard">
+
+
+    <div class="result-row">
+
+        <span>
+            التكلفة الإجمالية
+        </span>
+
+        <strong id="resultCost">
+            0 دج
+        </strong>
+
+    </div>
+
+
+    <div class="result-row">
+
+        <span>
+            سعر البيع المقترح
+        </span>
+
+        <strong id="resultPrice">
+            0 دج
+        </strong>
+
+    </div>
+
+
+    <div class="result-row">
+
+        <span>
+            الربح
+        </span>
+
+        <strong id="resultProfit">
+            0 دج
+        </strong>
+
+    </div>
+
+
+    <div class="result-row">
+
+        <span>
+            إجمالي البيع
+        </span>
+
+        <strong id="resultTotal">
+            0 دج
+        </strong>
+
+    </div>
+
+
+    <button
+        class="primary-btn"
+        style="
+        margin-top:12px;
+        margin-bottom:0;"
+        onclick="saveProduct()">
+
+        💾 حفظ عملية التسعير
+
+    </button>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+STORAGE
+===================================================== */
+
+let products =
+JSON.parse(
+    localStorage.getItem("sa3erli_products")
+) || [];
+
+let orders =
+JSON.parse(
+    localStorage.getItem("sa3erli_orders")
+) || [];
+
+let currentImage = "";
+
+
+/* =====================================================
+PAGE NAVIGATION
+===================================================== */
+
+function showPage(pageId, element){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
+
+            page.classList.remove("active");
+
+        });
+
+
+    const page =
+        document.getElementById(pageId);
+
+
+    if(page){
+        page.classList.add("active");
+    }
+
+
+    document
+        .querySelectorAll(".nav-item")
+        .forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+
+    if(element){
+        element.classList.add("active");
+    }
+
+
+    if(pageId === "prices"){
+        renderProducts();
+    }
+
+
+    if(pageId === "orders"){
+        renderOrders();
+    }
+
+
+    if(pageId === "profits"){
+        updateDashboard();
+    }
+
+}
+
+
+/* =====================================================
+PRICING MODAL
+===================================================== */
+
+function openPricing(ai=false){
+
+    document
+        .getElementById("pricingModal")
+        .style.display="flex";
+
+
+    if(ai){
+
+        setTimeout(() => {
+
+            alert(
+                "📸 اختر صورة المنتج أولاً، ثم اضغط على «تحليل AI تجريبي»."
+            );
+
+        },300);
+
+    }
+
+}
+
+
+function closePricing(){
+
+    document
+        .getElementById("pricingModal")
+        .style.display="none";
+
+}
+
+
+/* =====================================================
+CAMERA
+===================================================== */
+
+function openCamera(){
+
+    document
+        .getElementById("cameraInput")
+        .click();
+
+}
+
+
+/* =====================================================
+GALLERY
+===================================================== */
+
+function openGallery(){
+
+    document
+        .getElementById("galleryInput")
+        .click();
+
+}
+
+
+/* =====================================================
+IMAGE PREVIEW
+===================================================== */
+
+function previewImage(input){
+
+    if(!input.files || !input.files[0]){
+        return;
+    }
+
+
+    const file =
+        input.files[0];
+
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload = function(event){
+
+        currentImage =
+            event.target.result;
+
+
+        const preview =
+            document.getElementById(
+                "photoPreview"
+            );
+
+
+        preview.src =
+            currentImage;
+
+
+        preview.style.display =
+            "block";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+}
+
+
+/* =====================================================
+AI DEMO
+===================================================== */
+
+function aiAnalysis(){
+
+    const name =
+        document
+        .getElementById("productName")
+        .value;
+
+
+    if(!currentImage){
+
+        alert(
+            "📸 أضف صورة المنتج أولاً."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "🤖 جاري تحليل الصورة تجريبيًا..."
+    );
+
+
+    setTimeout(() => {
+
+        if(!name){
+
+            document
+                .getElementById("productName")
+                .value =
+                "منتج مطبوع";
+
+        }
+
+
+        alert(
+            "🤖 التحليل التجريبي:\n\n" +
+            "نوع محتمل: منتج للطباعة\n" +
+            "يمكنك تعديل المعلومات قبل الحساب."
+        );
+
+    },1000);
+
+}
+
+
+/* =====================================================
+CALCULATE PRICE
+===================================================== */
+
+function calculatePrice(){
+
+    const name =
+        document
+        .getElementById("productName")
+        .value
+        .trim();
+
+
+    const material =
+        Number(
+            document
+            .getElementById("materialCost")
+            .value
+        ) || 0;
+
+
+    const printing =
+        Number(
+            document
+            .getElementById("printCost")
+            .value
+        ) || 0;
+
+
+    const design =
+        Number(
+            document
+            .getElementById("designCost")
+            .value
+        ) || 0;
+
+
+    const extra =
+        Number(
+            document
+            .getElementById("extraCost")
+            .value
+        ) || 0;
+
+
+    const quantity =
+        Number(
+            document
+            .getElementById("quantity")
+            .value
+        ) || 1;
+
+
+    const margin =
+        Number(
+            document
+            .getElementById("margin")
+            .value
+        ) || 0;
+
+
+    if(!name){
+
+        alert(
+            "أدخل اسم المنتج."
+        );
+
+        return;
+
+    }
+
+
+    const unitCost =
+        material +
+        printing +
+        design +
+        extra;
+
+
+    const sellingPrice =
+        unitCost +
+        (
+            unitCost *
+            margin /
+            100
+        );
+
+
+    const unitProfit =
+        sellingPrice -
+        unitCost;
+
+
+    const total =
+        sellingPrice *
+        quantity;
+
+
+    document
+        .getElementById("resultCost")
+        .textContent =
+        Math.round(unitCost) +
+        " دج";
+
+
+    document
+        .getElementById("resultPrice")
+        .textContent =
+        Math.round(sellingPrice) +
+        " دج";
+
+
+    document
+        .getElementById("resultProfit")
+        .textContent =
+        Math.round(unitProfit) +
+        " دج";
+
+
+    document
+        .getElementById("resultTotal")
+        .textContent =
+        Math.round(total) +
+        " دج";
+
+
+    document
+        .getElementById("resultCard")
+        .style.display =
+        "block";
+
+
+    window.currentCalculation = {
+
+        name:name,
+
+        category:
+            document
+            .getElementById("productCategory")
+            .value,
+
+        cost:unitCost,
+
+        price:sellingPrice,
+
+        profit:unitProfit,
+
+        quantity:quantity,
+
+        total:total,
+
+        margin:margin,
+
+        image:currentImage,
+
+        date:
+            new Date()
+            .toLocaleDateString("ar-DZ")
+
+    };
+
+}
+
+
+/* =====================================================
+SAVE PRODUCT
+===================================================== */
+
+function saveProduct(){
+
+    if(!window.currentCalculation){
+
+        alert(
+            "احسب السعر أولاً."
+        );
+
+        return;
+
+    }
+
+
+    const product =
+        {
+
+            id:Date.now(),
+
+            ...window.currentCalculation
+
+        };
+
+
+    products.unshift(product);
+
+
+    localStorage.setItem(
+        "sa3erli_products",
+        JSON.stringify(products)
+    );
+
+
+    alert(
+        "✅ تم حفظ عملية التسعير."
+    );
+
+
+    closePricing();
+
+    resetPricing();
+
+    updateDashboard();
+
+    renderProducts();
+
+}
+
+
+/* =====================================================
+RESET
+===================================================== */
+
+function resetPricing(){
+
+    document
+        .getElementById("productName")
+        .value="";
+
+
+    document
+        .getElementById("materialCost")
+        .value="";
+
+
+    document
+        .getElementById("printCost")
+        .value="";
+
+
+    document
+        .getElementById("designCost")
+        .value="";
+
+
+    document
+        .getElementById("extraCost")
+        .value="";
+
+
+    document
+        .getElementById("quantity")
+        .value="1";
+
+
+    document
+        .getElementById("margin")
+        .value="40";
+
+
+    document
+        .getElementById("photoPreview")
+        .style.display="none";
+
+
+    document
+        .getElementById("resultCard")
+        .style.display="none";
+
+
+    currentImage="";
+
+    window.currentCalculation=null;
+
+}
+
+
+/* =====================================================
+RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+    const container =
+        document
+        .getElementById("productsList");
+
+
+    if(!container){
+        return;
+    }
+
+
+    const search =
+        document
+        .getElementById("searchProducts")
+        .value
+        .toLowerCase();
+
+
+    const filtered =
+        products.filter(product =>
+
+            product.name
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+
+    if(filtered.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    💰
+                </div>
+
+                <h3>
+                    لا توجد منتجات
+                </h3>
+
+                <p>
+                    ابدأ بتسعير أول منتج
+                    وسيظهر هنا.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        filtered
+        .map(product => `
+
+            <div class="product-card">
+
+                <div class="product-top">
+
+                    <div class="product-image">
+
+                        ${
+                            product.image
+
+                            ?
+
+                            `<img src="${product.image}">`
+
+                            :
+
+                            "📦"
+                        }
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <h3>
+                            ${escapeHTML(product.name)}
+                        </h3>
+
+                        <p>
+                            ${product.category}
+                            ·
+                            ${product.date}
+                        </p>
+
+                    </div>
+
+
+                    <div class="product-price">
+
+                        ${Math.round(product.price)}
+                        دج
+
+                    </div>
+
+                </div>
+
+
+                <div class="product-bottom">
+
+                    <div class="product-stat">
+
+                        التكلفة
+
+                        <strong>
+                            ${Math.round(product.cost)}
+                            دج
+                        </strong>
+
+                    </div>
+
+
+                    <div class="product-stat">
+
+                        الربح
+
+                        <strong>
+                            ${Math.round(product.profit)}
+                            دج
+                        </strong>
+
+                    </div>
+
+
+                    <div class="product-stat">
+
+                        الكمية
+
+                        <strong>
+                            ${product.quantity}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    onclick="deleteProduct(${product.id})"
+                    style="
+                    border:0;
+                    background:none;
+                    color:#e65353;
+                    font-size:11px;
+                    margin-top:12px;
+                    cursor:pointer;">
+
+                    🗑️ حذف
+
+                </button>
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* =====================================================
+DELETE PRODUCT
+===================================================== */
+
+function deleteProduct(id){
+
+    if(
+        !confirm(
+            "هل تريد حذف هذا المنتج؟"
+        )
+    ){
+        return;
+    }
+
+
+    products =
+        products.filter(
+            product =>
+                product.id !== id
+        );
+
+
+    localStorage.setItem(
+        "sa3erli_products",
+        JSON.stringify(products)
+    );
+
+
+    renderProducts();
+
+    updateDashboard();
+
+}
+
+
+/* =====================================================
+ORDERS
+===================================================== */
+
+function addOrder(){
+
+    if(products.length === 0){
+
+        alert(
+            "أضف منتجًا أولاً من صفحة أسعاري."
+        );
+
+        return;
+
+    }
+
+
+    const product =
+        products[0];
+
+
+    const order = {
+
+        id:Date.now(),
+
+        name:product.name,
+
+        quantity:product.quantity,
+
+        total:product.total,
+
+        status:"جديد",
+
+        date:
+            new Date()
+            .toLocaleDateString("ar-DZ")
+
+    };
+
+
+    orders.unshift(order);
+
+
+    localStorage.setItem(
+        "sa3erli_orders",
+        JSON.stringify(orders)
+    );
+
+
+    renderOrders();
+
+    updateDashboard();
+
+
+    alert(
+        "✅ تمت إضافة الطلبية."
+    );
+
+}
+
+
+function renderOrders(){
+
+    const container =
+        document
+        .getElementById("ordersList");
+
+
+    if(orders.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    📦
+                </div>
+
+                <h3>
+                    لا توجد طلبيات
+                </h3>
+
+                <p>
+                    أضف طلبية لتبدأ في
+                    متابعة عملياتك.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        orders
+        .map(order => `
+
+            <div class="order-card">
+
+                <div class="order-head">
+
+                    <div>
+
+                        <strong>
+                            ${escapeHTML(order.name)}
+                        </strong>
+
+                        <div
+                            style="
+                            color:#999;
+                            font-size:10px;
+                            margin-top:5px;">
+
+                            ${order.date}
+
+                        </div>
+
+                    </div>
+
+                    <div class="order-status">
+                        ${order.status}
+                    </div>
+
+                </div>
+
+
+                <div
+                    style="
+                    margin-top:12px;
+                    font-size:12px;
+                    color:#777;">
+
+                    الكمية:
+                    ${order.quantity}
+
+                </div>
+
+
+                <div class="order-total">
+
+                    ${Math.round(order.total)}
+                    دج
+
+                </div>
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* =====================================================
+DASHBOARD
+===================================================== */
+
+function updateDashboard(){
+
+    let totalProfit=0;
+
+
+    products.forEach(product => {
+
+        totalProfit +=
+            Number(product.profit) *
+            Number(product.quantity);
+
+    });
+
+
+    const average =
+        products.length
+
+        ?
+
+        totalProfit /
+        products.length
+
+        :
+
+        0;
+
+
+    document
+        .getElementById("homeProfit")
+        .textContent =
+        Math.round(totalProfit) +
+        " دج";
+
+
+    document
+        .getElementById("homeOrders")
+        .textContent =
+        orders.length;
+
+
+    document
+        .getElementById("homeProducts")
+        .textContent =
+        products.length;
+
+
+    document
+        .getElementById("homeAverage")
+        .textContent =
+        Math.round(average) +
+        " دج";
+
+
+    document
+        .getElementById("totalProfit")
+        .textContent =
+        Math.round(totalProfit) +
+        " دج";
+
+
+    document
+        .getElementById("profitAverage")
+        .textContent =
+        Math.round(average) +
+        " دج";
+
+
+    document
+        .getElementById("profitProducts")
+        .textContent =
+        products.length;
+
+
+    renderRecent();
+
+}
+
+
+/* =====================================================
+RECENT
+===================================================== */
+
+function renderRecent(){
+
+    const container =
+        document
+        .getElementById("recentList");
+
+
+    if(products.length===0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    🧮
+                </div>
+
+                <h3>
+                    لا توجد عمليات بعد
+                </h3>
+
+                <p>
+                    ابدأ بتسعير أول منتج.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        products
+        .slice(0,3)
+        .map(product => `
+
+            <div class="operation">
+
+                <div class="operation-icon">
+
+                    ${
+                        product.image
+
+                        ?
+
+                        `<img src="${product.image}">`
+
+                        :
+
+                        "🧮"
+                    }
+
+                </div>
+
+
+                <div class="operation-info">
+
+                    <div class="operation-name">
+
+                        ${escapeHTML(product.name)}
+
+                    </div>
+
+
+                    <div class="operation-date">
+
+                        ${product.date}
+
+                    </div>
+
+                </div>
+
+
+                <div class="operation-profit">
+
+                    +${Math.round(product.profit)}
+                    دج
+
+                </div>
+
+            </div>
+
+        `)
+        .join("");
+
+}
+
+
+/* =====================================================
+CONTENT ARTICLE
+===================================================== */
+
+function openArticle(type){
+
+    showPage("content");
+
+
+    let title="";
+    let text="";
+
+
+    if(type==="pricing"){
+
+        title="🧮 أساسيات التسعير";
+
+        text=
+        "التسعير الصحيح يبدأ من معرفة التكلفة الحقيقية. احسب تكلفة المواد، الطباعة، التصميم، الوقت والمصاريف الإضافية، ثم حدد هامش الربح المناسب.";
+
+    }
+
+
+    if(type==="printing"){
+
+        title="🖨️ تسعير الطباعة";
+
+        text=
+        "في الطباعة لا تحسب الورق فقط. أضف الحبر أو التونر، الكهرباء، القص، التجليد، التغليف ووقت العمل حتى تحصل على تكلفة واقعية.";
+
+    }
+
+
+    if(type==="digital"){
+
+        title="💻 المنتجات الرقمية";
+
+        text=
+        "المنتج الرقمي لا يعني أنه بلا تكلفة. احسب وقت التصميم، الخبرة، الأدوات، التحديثات والقيمة التي يحصل عليها العميل.";
+
+    }
+
+
+    if(type==="pdf"){
+
+        title="📄 عروض الأسعار";
+
+        text=
+        "عرض السعر الجيد يجب أن يكون واضحًا ومرتبًا، ويحتوي على بيانات النشاط والعميل والمنتج والكمية والسعر والإجمالي.";
+
+    }
+
+
+    document
+        .getElementById("articleContainer")
+        .innerHTML = `
+
+            <div class="article">
+
+                <h3>
+                    ${title}
+                </h3>
+
+                <p>
+                    ${text}
+                </p>
+
+            </div>
+
+        `;
+
+}
+
+
+/* =====================================================
+EXPORT DATA
+===================================================== */
+
+function exportData(){
+
+    const data={
+
+        products:products,
+
+        orders:orders,
+
+        exportedAt:
+            new Date()
+            .toISOString()
+
+    };
+
+
+    const blob =
+        new Blob(
+            [
+                JSON.stringify(
+                    data,
+                    null,
+                    2
+                )
+            ],
+            {
+                type:"application/json"
+            }
+        );
+
+
+    const url =
+        URL.createObjectURL(blob);
+
+
+    const link =
+        document.createElement("a");
+
+
+    link.href=url;
+
+    link.download=
+        "sa3erli-backup.json";
+
+
+    link.click();
+
+
+    URL.revokeObjectURL(url);
+
+}
+
+
+/* =====================================================
+DELETE ALL
+===================================================== */
+
+function deleteAllData(){
+
+    if(
+        !confirm(
+            "⚠️ سيتم حذف جميع المنتجات والطلبيات. هل أنت متأكد؟"
+        )
+    ){
+        return;
+    }
+
+
+    products=[];
+
+    orders=[];
+
+
+    localStorage.removeItem(
+        "sa3erli_products"
+    );
+
+
+    localStorage.removeItem(
+        "sa3erli_orders"
+    );
+
+
+    updateDashboard();
+
+    renderProducts();
+
+    renderOrders();
+
+
+    alert(
+        "🗑️ تم حذف جميع البيانات."
+    );
+
+}
+
+
+/* =====================================================
+SECURITY / HTML ESCAPE
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+START APP
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        updateDashboard();
+
+        renderProducts();
+
+        renderOrders();
+
+    }
+);
+
+
+/* =====================================================
+PWA - SERVICE WORKER
+===================================================== */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+                .then(function(){
+
+                    console.log(
+                        "✅ سعّرلي: Service Worker يعمل بنجاح"
+                    );
+
+                })
+                .catch(function(error){
+
+                    console.error(
+                        "❌ خطأ في Service Worker:",
+                        error
+                    );
+
+                });
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+
+</html>
